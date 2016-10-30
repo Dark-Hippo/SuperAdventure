@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 /// <summary>
 /// Coded from http://scottlilly.com/learn-c-by-building-a-simple-rpg-index/
-/// currently up to 09.1
+/// currently up to 12.1
 /// </summary>
 namespace SuperAdventure
 {
