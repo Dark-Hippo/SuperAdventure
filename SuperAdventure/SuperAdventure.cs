@@ -1,17 +1,9 @@
 ﻿using Engine;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /// <summary>
 /// Coded from http://scottlilly.com/learn-c-by-building-a-simple-rpg-index/
-/// currently up to 12.1
+/// currently up to 14.1
 /// </summary>
 namespace SuperAdventure
 {
@@ -39,6 +31,36 @@ namespace SuperAdventure
             this.lblGold.Text = _player.Gold.ToString();
             this.lblExperience.Text = _player.ExperiencePoints.ToString();
             this.lblLevel.Text = _player.Level.ToString();
+        }
+
+        private void btnNorth_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnEast_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnSouth_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnWest_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnUseWeapon_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void btnUsePotion_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
