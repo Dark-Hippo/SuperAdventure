@@ -121,19 +121,11 @@ namespace Engine
 
         public void AddItemToInventory(IItem itemToAdd)
         {
-            foreach (InventoryItem ii in Inventory)
-            {
-                if (ii.Details.ID == itemToAdd.ID)
-                {
-                    // They have the item in their inventory, so increase the quantity by one
-                    ii.Quantity++;
-
-                    return; // We added the item, and are done, so get out of this function
-                }
-            }
-
-            // They didn't have the item, so add it to their inventory, with a quantity of 1
-            Inventory.Add(new InventoryItem(itemToAdd, 1));
+            var item = Inventory.SingleOrDefault(i => i.Details.ID == itemToAdd.ID);
+            if (item != null)
+                item.Quantity += 1;
+            else
+                Inventory.Add(new InventoryItem(itemToAdd, 1));
         }
 
         public void MarkQuestCompleted(Quest quest)
