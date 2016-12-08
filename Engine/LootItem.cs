@@ -1,12 +1,14 @@
-﻿namespace Engine
+﻿using Engine.Interfaces;
+
+namespace Engine
 {
     public class LootItem
     {
-        public Item Details { get; set; }
+        public IItem Details { get; set; }
         public int DropPercentage { get; set; }
         public bool IsDefaultItem { get; set; }
 
-        public LootItem(Item details, int dropPercentage, bool isDefaultItem)
+        public LootItem(IItem details, int dropPercentage, bool isDefaultItem)
         {
             Details = details;
             DropPercentage = dropPercentage;

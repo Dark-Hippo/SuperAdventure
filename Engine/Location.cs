@@ -1,4 +1,6 @@
-﻿namespace Engine
+﻿using Engine.Interfaces;
+
+namespace Engine
 {
     public class Location
     {
@@ -6,7 +8,7 @@
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public Item ItemRequiredToEnter { get; set; }
+        public IItem ItemRequiredToEnter { get; set; }
         public Quest QuestAvailableHere { get; set; }
         public Monster MonsterLivingHere { get; set; }
         public Location LocationToNorth { get; set; }
@@ -16,7 +18,7 @@
 
 
         public Location(int id, string name, string description,
-            Item itemRequiredToEnter = null, Quest questAvailableHere = null,
+            IItem itemRequiredToEnter = null, Quest questAvailableHere = null,
             Monster monsterLivingHere = null)
         {
             ID = id;

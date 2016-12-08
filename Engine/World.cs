@@ -1,6 +1,7 @@
 ﻿using Engine.Interfaces;
 using Engine.Consts;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Engine
 {
@@ -143,9 +144,9 @@ namespace Engine
             Locations.Add(spiderField);
         }
 
-        public static Item ItemByID(int id)
+        public static IItem ItemByID(int id)
         {
-            foreach (Item item in Items)
+            foreach (IItem item in Items)
             {
                 if (item.ID == id)
                 {
@@ -158,15 +159,16 @@ namespace Engine
 
         public static Monster MonsterByID(int id)
         {
-            foreach (Monster monster in Monsters)
-            {
-                if (monster.ID == id)
-                {
-                    return monster;
-                }
-            }
+            return Monsters.Where(m => m.ID == id).SingleOrDefault();
+            //foreach (Monster monster in Monsters)
+            //{
+            //    if (monster.ID == id)
+            //    {
+            //        return monster;
+            //    }
+            //}
 
-            return null;
+            //return null;
         }
 
         public static Quest QuestByID(int id)

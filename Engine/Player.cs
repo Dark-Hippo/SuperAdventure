@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Engine.Interfaces;
+using System.Collections.Generic;
 
 namespace Engine
 {
@@ -117,7 +118,7 @@ namespace Engine
             }
         }
 
-        public void AddItemToInventory(Item itemToAdd)
+        public void AddItemToInventory(IItem itemToAdd)
         {
             foreach (InventoryItem ii in Inventory)
             {

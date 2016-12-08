@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="consts\Items.cs" />
-    <Compile Include="consts\LOCATIONS.cs" />
+    <Compile Include="consts\Locations.cs" />
     <Compile Include="consts\Monsters.cs" />
     <Compile Include="consts\Quests.cs" />
     <Compile Include="HealingPotion.cs" />
