@@ -1,4 +1,5 @@
 ﻿using Engine;
+using Engine.Consts;
 using Engine.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ namespace SuperAdventure
             InitializeComponent();
 
             _player = new Player(10, 10, 20, 0, 1);
-            MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
-            _player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
+            MoveTo(World.LocationByID(LOCATIONS.HOME));
+            _player.Inventory.Add(new InventoryItem(World.ItemByID(ITEMS.RUSTY_SWORD), 1));
 
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             lblGold.Text = _player.Gold.ToString();
@@ -297,7 +298,7 @@ namespace SuperAdventure
                     rtbMessages.Text += "The " + _currentMonster.Name + " killed you." + Environment.NewLine;
 
                     // Move player to "Home"
-                    MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
+                    MoveTo(World.LocationByID(LOCATIONS.HOME));
                 }
             }
         }
@@ -346,7 +347,7 @@ namespace SuperAdventure
                 rtbMessages.Text += "The " + _currentMonster.Name + " killed you." + Environment.NewLine;
 
                 // Move player to "Home"
-                MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
+                MoveTo(World.LocationByID(LOCATIONS.HOME));
             }
 
             // Refresh player data in UI

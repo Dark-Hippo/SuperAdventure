@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="consts\Items.cs" />
+    <Compile Include="consts\LOCATIONS.cs" />
+    <Compile Include="consts\Monsters.cs" />
+    <Compile Include="consts\Quests.cs" />
     <Compile Include="HealingPotion.cs" />
     <Compile Include="interfaces\IItem.cs" />
     <Compile Include="InventoryItem.cs" />
