@@ -1,5 +1,6 @@
 ﻿using Engine.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Engine
 {
@@ -137,21 +138,9 @@ namespace Engine
 
         public void MarkQuestCompleted(Quest quest)
         {
-            //var playerQuest = Quests.SingleOrDefault(p => p.Details.ID == quest.ID);
-            //if (playerQuest != null)
-            //    playerQuest.IsCompleted = true;
-
-            // Find the quest in the player's quest list
-            foreach (PlayerQuest pq in Quests)
-            {
-                if (pq.Details.ID == quest.ID)
-                {
-                    // Mark it as completed
-                    pq.IsCompleted = true;
-
-                    return; // We found the quest, and marked it complete, so get out of this function
-                }
-            }
+            var playerQuest = Quests.SingleOrDefault(p => p.Details.ID == quest.ID);
+            if (playerQuest != null)
+                playerQuest.IsCompleted = true;
         }
     }
 }
