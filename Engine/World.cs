@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Engine.Interfaces;
+using System.Collections.Generic;
 
 namespace Engine
 {
     public static class World
     {
-        public static List<Item> Items { get; set; } = new List<Item>();
+        public static List<IItem> Items { get; set; } = new List<IItem>();
         public static List<Monster> Monsters { get; set; } = new List<Monster>();
         public static List<Quest> Quests { get; set; } = new List<Quest>();
         public static List<Location> Locations { get; set; } = new List<Location>();

@@ -1,6 +1,8 @@
-﻿namespace Engine
+﻿using Engine.Interfaces;
+
+namespace Engine
 {
-    public class Item
+    public sealed class Item : IItem
     {
         public int ID { get; set; }
         public string Name { get; set; }

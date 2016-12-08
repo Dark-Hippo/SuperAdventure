@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperAdventure", "SuperAdve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{667CCF57-E30E-4244-B71B-91264EC0C6B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine.Tests", "Engine.Tests\Engine.Tests.csproj", "{82A6E6DE-5951-4200-A00C-7C248240A812}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{667CCF57-E30E-4244-B71B-91264EC0C6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{667CCF57-E30E-4244-B71B-91264EC0C6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{667CCF57-E30E-4244-B71B-91264EC0C6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A6E6DE-5951-4200-A00C-7C248240A812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A6E6DE-5951-4200-A00C-7C248240A812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A6E6DE-5951-4200-A00C-7C248240A812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A6E6DE-5951-4200-A00C-7C248240A812}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

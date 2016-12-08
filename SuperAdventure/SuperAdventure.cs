@@ -1,4 +1,5 @@
 ﻿using Engine;
+using Engine.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -393,15 +394,15 @@ namespace SuperAdventure
 
         private void UpdateWeaponListInUI()
         {
-            List<Weapon> weapons = new List<Weapon>();
+            List<IItem> weapons = new List<IItem>();
 
             foreach (InventoryItem inventoryItem in _player.Inventory)
             {
-                if (inventoryItem.Details is Weapon)
+                if (inventoryItem is Weapon)
                 {
                     if (inventoryItem.Quantity > 0)
                     {
-                        weapons.Add((Weapon)inventoryItem.Details);
+                        weapons.Add(inventoryItem.Details);
                     }
                 }
             }
@@ -424,7 +425,7 @@ namespace SuperAdventure
 
         private void UpdatePotionListInUI()
         {
-            List<HealingPotion> healingPotions = new List<HealingPotion>();
+            List<IItem> healingPotions = new List<IItem>();
 
             foreach (InventoryItem inventoryItem in _player.Inventory)
             {
@@ -432,7 +433,7 @@ namespace SuperAdventure
                 {
                     if (inventoryItem.Quantity > 0)
                     {
-                        healingPotions.Add((HealingPotion)inventoryItem.Details);
+                        healingPotions.Add(inventoryItem.Details);
                     }
                 }
             }
