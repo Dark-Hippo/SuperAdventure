@@ -137,6 +137,10 @@ namespace Engine
 
         public void MarkQuestCompleted(Quest quest)
         {
+            //var playerQuest = Quests.SingleOrDefault(p => p.Details.ID == quest.ID);
+            //if (playerQuest != null)
+            //    playerQuest.IsCompleted = true;
+
             // Find the quest in the player's quest list
             foreach (PlayerQuest pq in Quests)
             {

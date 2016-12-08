@@ -399,7 +399,7 @@ namespace SuperAdventure
 
             foreach (InventoryItem inventoryItem in _player.Inventory)
             {
-                if (inventoryItem is Weapon)
+                if (inventoryItem.Details.GetType() == typeof(Weapon))
                 {
                     if (inventoryItem.Quantity > 0)
                     {
