@@ -4,8 +4,9 @@ using System.Linq;
 
 namespace Engine
 {
-    public class Player : LivingCreature
+    public class Player
     {
+        public IHitPoints HitPoints { get; set; }
         public int Gold { get; set; }
         public int ExperiencePoints { get; set; }
         public int Level { get; set; }
@@ -13,12 +14,15 @@ namespace Engine
         public List<InventoryItem> Inventory { get; set; }
         public List<PlayerQuest> Quests { get; set; }
 
-        public Player(int currentHitPoints, int maximumHitPoints, int gold, int experiencePoints, int level) : base(currentHitPoints, maximumHitPoints)
+        public Player(int currentHitPoints, int maximumHitPoints, int gold, int experiencePoints, int level)
         {
             Gold = gold;
             ExperiencePoints = experiencePoints;
             Level = level;
-
+            HitPoints = new HitPoints (
+                currentHitPoints,
+                maximumHitPoints
+            );
             Inventory = new List<InventoryItem>();
             Quests = new List<PlayerQuest>();
         }
@@ -108,6 +112,7 @@ namespace Engine
         public void RemoveQuestCompletionItems(Quest quest)
         {
             //TODO: refactor this
+            
             foreach (QuestCompletionItem qci in quest.QuestCompletionItems)
             {
                 foreach (InventoryItem ii in Inventory)

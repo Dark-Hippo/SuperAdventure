@@ -46,9 +46,10 @@
     <Compile Include="consts\Quests.cs" />
     <Compile Include="HealingPotion.cs" />
     <Compile Include="interfaces\IItem.cs" />
+    <Compile Include="interfaces\IHitPoints.cs" />
     <Compile Include="InventoryItem.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="LivingCreature.cs" />
+    <Compile Include="HitPoints.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="LootItem.cs" />
     <Compile Include="Monster.cs" />

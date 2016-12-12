@@ -24,7 +24,7 @@ namespace SuperAdventure
             MoveTo(World.LocationByID(LOCATIONS.HOME));
             _player.Inventory.Add(new InventoryItem(World.ItemByID(ITEMS.RUSTY_SWORD), 1));
 
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            lblHitPoints.Text = _player.HitPoints.Current.ToString();
             lblGold.Text = _player.Gold.ToString();
             lblExperience.Text = _player.ExperiencePoints.ToString();
             lblLevel.Text = _player.Level.ToString();
@@ -73,10 +73,10 @@ namespace SuperAdventure
             rtbLocation.Text += newLocation.Description + Environment.NewLine;
 
             // Completely heal the player
-            _player.CurrentHitPoints = _player.MaximumHitPoints;
+            _player.HitPoints.Current = _player.HitPoints.Maximum;
 
             // Update Hit Points in UI
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            lblHitPoints.Text = _player.HitPoints.Current.ToString();
 
             // Does the location have a quest?
             if (newLocation.QuestAvailableHere != null)
@@ -157,7 +157,7 @@ namespace SuperAdventure
                 Monster standardMonster = World.MonsterByID(newLocation.MonsterLivingHere.ID);
 
                 _currentMonster = new Monster(standardMonster.ID, standardMonster.Name, standardMonster.MaximumDamage,
-                    standardMonster.RewardExperiencePoints, standardMonster.RewardGold, standardMonster.CurrentHitPoints, standardMonster.MaximumHitPoints);
+                    standardMonster.RewardExperiencePoints, standardMonster.RewardGold, standardMonster.HitPoints.Current, standardMonster.HitPoints.Maximum);
 
                 foreach (LootItem lootItem in standardMonster.LootTable)
                 {
@@ -201,13 +201,13 @@ namespace SuperAdventure
             int damageToMonster = RandomNumberGenerator.NumberBetween(currentWeapon.MinimumDamage, currentWeapon.MaximumDamage);
 
             // Apply the damage to the monster's CurrentHitPoints
-            _currentMonster.CurrentHitPoints -= damageToMonster;
+            _currentMonster.HitPoints.Current -= damageToMonster;
 
             // Display message
             rtbMessages.Text += "You hit the " + _currentMonster.Name + " for " + damageToMonster.ToString() + " points." + Environment.NewLine;
 
             // Check if the monster is dead
-            if (_currentMonster.CurrentHitPoints <= 0)
+            if (_currentMonster.HitPoints.Current <= 0)
             {
                 // Monster is dead
                 rtbMessages.Text += Environment.NewLine;
@@ -261,7 +261,7 @@ namespace SuperAdventure
                 }
 
                 // Refresh player information and inventory controls
-                lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+                lblHitPoints.Text = _player.HitPoints.Current.ToString();
                 lblGold.Text = _player.Gold.ToString();
                 lblExperience.Text = _player.ExperiencePoints.ToString();
                 lblLevel.Text = _player.Level.ToString();
@@ -287,12 +287,12 @@ namespace SuperAdventure
                 rtbMessages.Text += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
 
                 // Subtract damage from player
-                _player.CurrentHitPoints -= damageToPlayer;
+                _player.HitPoints.Current -= damageToPlayer;
 
                 // Refresh player data in UI
-                lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+                lblHitPoints.Text = _player.HitPoints.Current.ToString();
 
-                if (_player.CurrentHitPoints <= 0)
+                if (_player.HitPoints.Current <= 0)
                 {
                     // Display message
                     rtbMessages.Text += "The " + _currentMonster.Name + " killed you." + Environment.NewLine;
@@ -309,12 +309,12 @@ namespace SuperAdventure
             HealingPotion potion = (HealingPotion)cboPotions.SelectedItem;
 
             // Add healing amount to the player's current hit points
-            _player.CurrentHitPoints = (_player.CurrentHitPoints + potion.AmountToHeal);
+            _player.HitPoints.Current = (_player.HitPoints.Current + potion.AmountToHeal);
 
             // CurrentHitPoints cannot exceed player's MaximumHitPoints
-            if (_player.CurrentHitPoints > _player.MaximumHitPoints)
+            if (_player.HitPoints.Current > _player.HitPoints.Maximum)
             {
-                _player.CurrentHitPoints = _player.MaximumHitPoints;
+                _player.HitPoints.Current = _player.HitPoints.Maximum;
             }
 
             // Remove the potion from the player's inventory
@@ -339,9 +339,9 @@ namespace SuperAdventure
             rtbMessages.Text += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
 
             // Subtract damage from player
-            _player.CurrentHitPoints -= damageToPlayer;
+            _player.HitPoints.Current -= damageToPlayer;
 
-            if (_player.CurrentHitPoints <= 0)
+            if (_player.HitPoints.Current <= 0)
             {
                 // Display message
                 rtbMessages.Text += "The " + _currentMonster.Name + " killed you." + Environment.NewLine;
@@ -351,7 +351,7 @@ namespace SuperAdventure
             }
 
             // Refresh player data in UI
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            lblHitPoints.Text = _player.HitPoints.Current.ToString();
             UpdateInventoryListInUI();
             UpdatePotionListInUI();
         }
