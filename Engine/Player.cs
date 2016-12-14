@@ -78,7 +78,7 @@ namespace Engine
 
         public bool HasAllQuestCompletionItems(Quest quest)
         {
-            //TODO: add tests for this and then refactor 
+            //TODO: try and refactor this
 
             // See if the player has all the items needed to complete the quest here
             foreach (QuestCompletionItem qci in quest.QuestCompletionItems)

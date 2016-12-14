@@ -52,7 +52,7 @@
     <Compile Include="models\HitPoints.cs" />
     <Compile Include="models\Location.cs" />
     <Compile Include="models\LootItem.cs" />
-    <Compile Include="Monster.cs" />
+    <Compile Include="models\Monster.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="models\PlayerQuest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

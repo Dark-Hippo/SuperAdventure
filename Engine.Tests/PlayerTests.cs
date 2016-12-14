@@ -101,5 +101,37 @@ namespace Engine.Tests
 
             Assert.AreEqual(0, _player.Inventory[0].Quantity);
         }
+
+        [TestMethod]
+        public void HasSingleQuestCompletionItem()
+        {
+            _quest1.QuestCompletionItems.Add(_questCompletionWeapon);
+            _player.AddItemToInventory(_weapon1);
+
+            Assert.IsTrue(_player.HasAllQuestCompletionItems(_quest1));
+        }
+
+        [TestMethod]
+        public void HasMultipleQuestCompletionItems()
+        {
+            _quest1.QuestCompletionItems.Add(_questCompletionWeapon);
+            _quest1.QuestCompletionItems.Add(_questCompletionItem);
+
+            _player.AddItemToInventory(_weapon1);
+            _player.AddItemToInventory(_item1);
+
+            Assert.IsTrue(_player.HasAllQuestCompletionItems(_quest1));
+        }
+
+        [TestMethod]
+        public void HasMultipleUniqueQuestCompletionItems()
+        {
+            var _questCompletionItem1 = new QuestCompletionItem(_weapon1, 3);
+            _quest1.QuestCompletionItems.Add(_questCompletionItem1);
+
+            _player.Inventory.Add(new InventoryItem(_weapon1, 3));
+
+            Assert.IsTrue(_player.HasAllQuestCompletionItems(_quest1));
+        }
     }
 }

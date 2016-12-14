@@ -1,8 +1,7 @@
 ﻿using Engine.Interfaces;
-using Engine.Models;
 using System.Collections.Generic;
 
-namespace Engine
+namespace Engine.Models
 {
     public class Monster
     {
@@ -21,8 +20,10 @@ namespace Engine
             MaximumDamage = maximumDamage;
             RewardExperiencePoints = rewardExperiencePoints;
             RewardGold = rewardGold;
-            HitPoints.Current = currentHitPoints;
-            HitPoints.Maximum = maximumDamage;
+            HitPoints = new HitPoints(
+                currentHitPoints,
+                maximumHitPoints
+            );
             LootTable = new List<LootItem>();
         }
     }
