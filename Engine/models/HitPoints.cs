@@ -1,7 +1,7 @@
 ﻿using System;
 using Engine.Interfaces;
 
-namespace Engine
+namespace Engine.Models
 {
     public class HitPoints : IHitPoints
     {

@@ -1,4 +1,4 @@
-﻿namespace Engine
+﻿namespace Engine.Models
 {
     public class PlayerQuest
     {

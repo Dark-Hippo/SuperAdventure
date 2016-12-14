@@ -1,7 +1,6 @@
 ﻿using Engine.Interfaces;
-using System;
 
-namespace Engine
+namespace Engine.Models
 {
     public class Weapon : IItem
     {
